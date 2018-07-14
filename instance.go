@@ -1,6 +1,6 @@
 package pattern
 
-type PatternInstance interface {
+type Instance interface {
 	//get the id of instance, different instance has different id
 	GetInstanceId() int64
 }

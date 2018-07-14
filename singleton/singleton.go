@@ -1,26 +1,26 @@
 package singleton
 
 import (
-	"time"
 	"sync"
+	"time"
 )
 
 // Singleton Pattern Definition:
 // Ensure a class has only one instance,
-// and provide a global point of access to it
+// and provide a global point of access to it.
 
-type SingletonPattern struct {
+type Singleton struct {
 	id int64
 }
 
 var (
-	once sync.Once
-	singletonInstance *SingletonPattern
+	once              sync.Once
+	singletonInstance *Singleton
 )
 
-func NewInstance() *SingletonPattern {
-	once.Do(func(){
-		singletonInstance = &SingletonPattern{
+func GetSingletonInstance() *Singleton {
+	once.Do(func() {
+		singletonInstance = &Singleton{
 			id: time.Now().UnixNano(),
 		}
 	})
@@ -28,6 +28,6 @@ func NewInstance() *SingletonPattern {
 	return singletonInstance
 }
 
-func (s *SingletonPattern) GetInstanceId() int64 {
+func (s *Singleton) GetInstanceId() int64 {
 	return s.id
 }

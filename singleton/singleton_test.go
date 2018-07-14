@@ -1,9 +1,9 @@
 package singleton
 
 import (
-	"testing"
 	"fmt"
 	"sync"
+	"testing"
 )
 
 func TestNewInstance(t *testing.T) {
@@ -11,9 +11,9 @@ func TestNewInstance(t *testing.T) {
 	var goroutineNum = 5
 
 	wg.Add(goroutineNum)
-	for index := 0; index < goroutineNum; index ++ {
-		go func(index int){
-			singleton := NewInstance()
+	for index := 0; index < goroutineNum; index++ {
+		go func(index int) {
+			singleton := GetSingletonInstance()
 			fmt.Printf("goroutine[%v]->singletonId[%v]\n", index, singleton.GetInstanceId())
 			wg.Done()
 		}(index)
