@@ -1,14 +1,27 @@
 package factorymethod
 
-import "testing"
+import (
+	"testing"
+	"fmt"
+)
 
 func TestFactoryMethod(t *testing.T) {
-	add := NewAddOperation()
-	sub := NewSubOperation()
+	op1 := ChooseOperation('+')
+	op1.SetValue(1, 2)
+	t.Log(op1.GetResult())
 
-	add.SetValue(1, 2)
-	sub.SetValue(2, 1)
+	op2 := ChooseOperation('-')
+	op2.SetValue(3, 2)
+	t.Log(op2.GetResult())
+}
 
-	t.Log(add.GetResult())
-	t.Log(sub.GetResult())
+func ChooseOperation(t byte) OperationInterface {
+	switch t {
+	case '+':
+		return NewAddOperation()
+	case '-':
+		return NewSubOperation()
+	default:
+		panic(fmt.Sprintf("not support '%v'", t))
+	}
 }
