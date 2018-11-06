@@ -1,33 +1,23 @@
-package factory
+package simplefactory
 
 import (
 	"fmt"
 	"time"
 )
 
-// take and example of hadoop nameNode and dataNode
-// we can get some node information on manager device
-
-var globalFactory *Manager
-
+// Factory Pattern Definition:
+// Define an interface for creating an object,
+// but let subclasses decide which class to instantiate.
+// Factory Method lets a class defer instantiation to subclasses.
 type Node interface {
 	GetRole() string
 	GetIp() string
 	GetStatus() string
 }
 
-//simple factory
-type Manager struct {
-	info string
-}
-
-func NewFactoryInstance() *Manager {
-	return &Manager{
-		info: "I am the manager of hadoop",
-	}
-}
-
-func (sf *Manager) NewNodeMachine(role, ip string) Node {
+// take and example of hadoop nameNode and dataNode,
+// we can get different information with different node.
+func NewNodeMachine(role, ip string) Node {
 	switch role {
 	case "nn":
 		return &NameNode{

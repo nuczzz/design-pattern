@@ -1,4 +1,4 @@
-package factory
+package simplefactory
 
 import (
 	"math/rand"
@@ -7,11 +7,9 @@ import (
 )
 
 func TestSimpleFactory(t *testing.T) {
-	manager := NewFactoryInstance()
-
-	nameNode := manager.NewNodeMachine("nn", "192.168.0.100")
-	dataNode1 := manager.NewNodeMachine("dn", "192.168.0.200")
-	dataNode2 := manager.NewNodeMachine("dn", "192.168.0.201")
+	nameNode := NewNodeMachine("nn", "192.168.0.100")
+	dataNode1 := NewNodeMachine("dn", "192.168.0.200")
+	dataNode2 := NewNodeMachine("dn", "192.168.0.201")
 
 	for _, node := range []Node{nameNode, dataNode1, dataNode2} {
 		time.Sleep(time.Duration(rand.Intn(2)+1) * time.Second)
