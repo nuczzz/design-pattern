@@ -9,18 +9,18 @@ import (
 // Ensure a class has only one instance,
 // and provide a global point of access to it.
 
-type Singleton struct {
+type singleton struct {
 	id int64
 }
 
 var (
 	once              sync.Once
-	singletonInstance *Singleton
+	singletonInstance *singleton
 )
 
-func GetSingletonInstance() *Singleton {
+func GetSingletonInstance() *singleton {
 	once.Do(func() {
-		singletonInstance = &Singleton{
+		singletonInstance = &singleton{
 			id: time.Now().UnixNano(),
 		}
 	})
@@ -28,6 +28,6 @@ func GetSingletonInstance() *Singleton {
 	return singletonInstance
 }
 
-func (s *Singleton) GetInstanceId() int64 {
+func (s *singleton) GetInstanceId() int64 {
 	return s.id
 }
