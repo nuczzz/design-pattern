@@ -18,6 +18,7 @@ var (
 	singletonInstance *singleton
 )
 
+// GetSingletonInstance get singleton instance of thread safe method
 func GetSingletonInstance() *singleton {
 	once.Do(func() {
 		singletonInstance = &singleton{
@@ -28,6 +29,7 @@ func GetSingletonInstance() *singleton {
 	return singletonInstance
 }
 
+// GetInstanceId get instance id to distinguish and verify instance
 func (s *singleton) GetInstanceId() int64 {
 	return s.id
 }
