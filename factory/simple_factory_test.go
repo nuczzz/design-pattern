@@ -1,13 +1,13 @@
 package factory
 
 import (
+	"math/rand"
 	"testing"
 	"time"
-	"math/rand"
 )
 
 func TestSimpleFactory(t *testing.T) {
-	manager := GetGlobalFactoryInstance()
+	manager := NewFactoryInstance()
 
 	nameNode := manager.NewNodeMachine("nn", "192.168.0.100")
 	dataNode1 := manager.NewNodeMachine("dn", "192.168.0.200")

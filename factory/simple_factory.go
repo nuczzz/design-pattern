@@ -2,17 +2,13 @@ package factory
 
 import (
 	"fmt"
-	"sync"
 	"time"
 )
 
 // take and example of hadoop nameNode and dataNode
 // we can get some node information on manager device
 
-var (
-	once          sync.Once
-	globalFactory *Manager
-)
+var globalFactory *Manager
 
 type Node interface {
 	GetRole() string
@@ -25,14 +21,10 @@ type Manager struct {
 	info string
 }
 
-func GetGlobalFactoryInstance() *Manager {
-	once.Do(func() {
-		globalFactory = &Manager{
-			info: "I am the manager of hadoop",
-		}
-	})
-
-	return globalFactory
+func NewFactoryInstance() *Manager {
+	return &Manager{
+		info: "I am the manager of hadoop",
+	}
 }
 
 func (sf *Manager) NewNodeMachine(role, ip string) Node {
