@@ -5,15 +5,15 @@ import "fmt"
 type Ant struct {
 }
 
-func (e *Ant)OpenDoor() {
+func (e *Ant)openDoor() {
 	fmt.Println("ant open the door")
 }
 
-func (e *Ant)Enter() {
+func (e *Ant)enter() {
 	fmt.Println("ant enter room")
 }
 
-func (e *Ant)CloseDoor() {
+func (e *Ant)closeDoor() {
 	fmt.Println("ant close the door.")
 }
 
