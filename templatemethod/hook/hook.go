@@ -1,14 +1,17 @@
 package hook
 
-type TemplateHook interface {
-	BeforeDo()
+type SystemHook interface {
 	Do()
+}
+
+type ClientHook interface {
+	BeforeDo()
 	AfterDo()
 }
 
 type Hook struct {
-	SystemAction TemplateHook
-	ClientAction TemplateHook
+	SystemAction SystemHook
+	ClientAction ClientHook
 }
 
 func (h *Hook) Do() {
