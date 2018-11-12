@@ -2,7 +2,7 @@ package hook
 
 import "fmt"
 
-// lowercase structure and lowercase function of systemHook
+// lowercase structure name and lowercase function name of systemHook
 type systemHook interface {
 	do()
 }
