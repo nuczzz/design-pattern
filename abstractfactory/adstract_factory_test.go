@@ -14,7 +14,7 @@ func TestAbstractFactory(t *testing.T) {
 	t.Log(cola.Drink())
 }
 
-func ChooseFactory(t byte) AbstractFactory{
+func ChooseFactory(t byte) AbstractFactory {
 	switch t {
 	case 'k':
 		return NewKfcFactory()

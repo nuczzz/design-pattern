@@ -5,15 +5,15 @@ import "fmt"
 type Elephant struct {
 }
 
-func (e *Elephant)openDoor() {
+func (e *Elephant) openDoor() {
 	fmt.Println("elephant open the door")
 }
 
-func (e *Elephant)enter() {
+func (e *Elephant) enter() {
 	fmt.Println("elephant enter room")
 }
 
-func (e *Elephant)closeDoor() {
+func (e *Elephant) closeDoor() {
 	fmt.Println("elephant close the door, oh no...the door crash.")
 }
 

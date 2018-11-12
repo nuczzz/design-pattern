@@ -14,7 +14,7 @@ type Template struct {
 	Animal
 }
 
-func (t *Template)Run() {
+func (t *Template) Run() {
 	t.openDoor()
 	t.enter()
 	t.closeDoor()

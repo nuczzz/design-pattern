@@ -1,8 +1,8 @@
 package factorymethod
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestFactoryMethod(t *testing.T) {
