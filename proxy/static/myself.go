@@ -1,15 +1,17 @@
 package static
 
-import "fmt"
-
 type Myself struct {
-	Name string
+	friend Proxy
+	Name   string
 }
 
-func (m *Myself) ReadMsg(msg string) {
-	fmt.Println(m.Name + " read " + msg)
+func (m *Myself) SendMsg(msg string) {
+	m.friend.SendMsg2Girl(msg)
 }
 
-func (m *Myself) SendMsg() string {
-	return "I'm " + m.Name
+func NewMyself(name string, friend Proxy) *Myself {
+	return &Myself{
+		friend: friend,
+		Name:   name,
+	}
 }

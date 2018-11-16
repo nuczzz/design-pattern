@@ -7,9 +7,11 @@ type Girl struct {
 }
 
 func (g *Girl) ReadMsg(msg string) {
-	fmt.Println(g.Name + " read " + msg)
+	fmt.Println(msg + g.Name)
 }
 
-func (g *Girl) SendMsg() string {
-	return "I'm " + g.Name
+func NewGirl(name string) *Girl {
+	return &Girl{
+		Name: name,
+	}
 }

@@ -5,5 +5,4 @@ package static
 
 type Proxy interface {
 	SendMsg2Girl(string)
-	SendMsg2Boy(string)
 }

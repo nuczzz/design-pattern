@@ -1,14 +1,18 @@
 package static
 
 type Friend struct {
-	Girl
-	Myself
+	girl *Girl
 }
 
 func (f *Friend)SendMsg2Girl(msg string) {
-	f.Girl.ReadMsg(msg)
+	msg += " -> friend_proxy -> "
+	f.girl.ReadMsg(msg)
 }
 
-func (f *Friend)SendMsg2Boy(msg string){
 
+
+func NewFriendProxy(girl *Girl) Proxy {
+	return &Friend{
+		girl: girl,
+	}
 }
