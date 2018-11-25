@@ -12,7 +12,7 @@ type Concentrate struct {
 	strategy Strategy
 }
 
-func NewConCentrate(s Strategy) *Concentrate {
+func NewConcentrate(s Strategy) *Concentrate {
 	return &Concentrate{strategy: s}
 }
 
