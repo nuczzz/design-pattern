@@ -1,28 +1,46 @@
 package logger
 
-const (
-	_ = iota
-	LevelDebug
-	levelWarning
-	LevelInfo
-	LevelError
-)
-
 type Logger struct {
-	level      int
-	nextLogger *Logger
+	loggerChain BaseLogger
 }
 
-func (l *Logger) SetNextLogger(logger *Logger) {
-	l.nextLogger = logger
+func (l *Logger) Debug(msg string) {
+	l.loggerChain.Print(LevelDebug, msg)
 }
 
-func (l *Logger) PrintMessage(level int, msg string) {
-	if level <= l.level {
+func (l *Logger) Debugf(format string, msg ...interface{}) {
+	l.loggerChain.Printf(LevelDebug, format, msg...)
+}
 
+func (l *Logger) Info(msg string) {
+	l.loggerChain.Print(LevelInfo, msg)
+}
+
+func (l *Logger) Infof(format string, msg ...interface{}) {
+	l.loggerChain.Printf(LevelInfo, format, msg...)
+}
+
+func (l *Logger) Error(msg string) {
+	l.loggerChain.Print(LevelError, msg)
+}
+
+func (l *Logger) Errorf(format string, msg ...interface{}) {
+	l.loggerChain.Printf(LevelError, format, msg...)
+}
+
+func newLoggerChain() BaseLogger {
+	debugLogger := NewDebugLogger()
+	infoLogger := NewInfoLogger()
+	errorLogger := NewErrorLogger()
+
+	debugLogger.SetNextLogger(infoLogger)
+	infoLogger.SetNextLogger(errorLogger)
+
+	return debugLogger
+}
+
+func NewLogger() *Logger {
+	return &Logger{
+		loggerChain: newLoggerChain(),
 	}
-}
-
-func (l *Logger) Write(msg string) {
-
 }
