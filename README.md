@@ -1,7 +1,7 @@
 # design-pattern
 Basic design patterns.
 
-# design principle
+## design principle
 * **Single Responsibility Principle**.
 * **Liskov Substitution Principle**.
 * **Dependence Inversion Principle**.
