@@ -1,4 +1,4 @@
-package visitor
+package bill
 
 // Visitor Pattern Definition:
 // Represent an operation to be performed on the elements of an object structure.

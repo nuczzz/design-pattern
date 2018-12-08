@@ -1,4 +1,4 @@
-package visitor
+package bill
 
 type Boss struct {
 	TotalIncome float64

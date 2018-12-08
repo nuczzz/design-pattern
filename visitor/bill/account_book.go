@@ -1,4 +1,4 @@
-package visitor
+package bill
 
 type AccountBook struct {
 	List []Bill
