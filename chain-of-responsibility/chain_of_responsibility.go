@@ -1,4 +1,4 @@
-package chainofresponsibility
+package chain_of_responsibility
 
 // Chain Of Responsibility Pattern Definition:
 // Avoid coupling the sender of a request to its receiver

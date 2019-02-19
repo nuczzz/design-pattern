@@ -1,4 +1,4 @@
-package templatemethod
+package template_method
 
 import "testing"
 

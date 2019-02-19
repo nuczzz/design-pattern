@@ -1,4 +1,4 @@
-package abstractfactory
+package abstract_factory
 
 // Abstract Factory pattern
 // Provide an interface for creating families of related

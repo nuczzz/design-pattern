@@ -1,4 +1,4 @@
-package factorymethod
+package factory_method
 
 // Factory Method Pattern Definition:
 // Defines an interface for creating objects,

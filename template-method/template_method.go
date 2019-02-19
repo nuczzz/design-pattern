@@ -1,4 +1,4 @@
-package templatemethod
+package template_method
 
 // Template Method Pattern Definition:
 // Define the skeleton of an algorithm in an operation,

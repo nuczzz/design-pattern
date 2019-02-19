@@ -1,4 +1,4 @@
-package factorymethod
+package factory_method
 
 // add operation
 type AddOperation struct {

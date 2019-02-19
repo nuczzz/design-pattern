@@ -1,4 +1,4 @@
-package factorymethod
+package factory_method
 
 // sub operation
 type SubOperation struct {
